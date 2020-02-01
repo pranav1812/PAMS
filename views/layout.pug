@@ -1,9 +1,8 @@
 doctype html
 // The core Firebase JS SDK is always required and must be listed first
 script(src='https://www.gstatic.com/firebasejs/7.8.0/firebase-app.js')
-//
-  TODO: Add SDKs for Firebase products that you want to use
-  https://firebase.google.com/docs/web/setup#available-libraries
+script(src='https://www.gstatic.com/firebasejs/7.8.0/firebase-firestore.js')
+
 script(src='https://www.gstatic.com/firebasejs/7.8.0/firebase-analytics.js')
 script.
   // Your web app's Firebase configuration
@@ -20,24 +19,28 @@ script.
   // Initialize Firebase
   firebase.initializeApp(firebaseConfig);
   firebase.analytics();
+  const db = firebase.firestore();
+  db.settings({ timestampsInSnapshots: true });
+
 
 head
-
   title PAMS
   meta(charset='utf-8')
   meta(name='viewport' content='width=device-width, initial-scale=1, shrink-to-fit=no')
+  link(rel='stylesheet' href='G:\visual studio\mediplus')
   link(href='https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900' rel='stylesheet')
-  link(rel='stylesheet' href='../public/css/open-iconic-bootstrap.min.css')
-  link(rel='stylesheet' href='../public/css/animate.css')
-  link(rel='stylesheet' href='../public/css/owl.carousel.min.css')
-  link(rel='stylesheet' href='../public/css/owl.theme.default.min.css')
-  link(rel='stylesheet' href='../public/css/magnific-popup.css')
-  link(rel='stylesheet' href='../public/css/aos.css')
-  link(rel='stylesheet' href='../public/css/ionicons.min.css')
-  link(rel='stylesheet' href='../public/css/flaticon.css')
-  link(rel='stylesheet' href='../public/css/icomoon.css')
-  link(rel='stylesheet' href='../public/css/style.css')
-.py-1.bg-black.top
+  link(rel='stylesheet' href='css/open-iconic-bootstrap.min.css')
+  link(rel='stylesheet' href='css/animate.css')
+  link(rel='stylesheet' href='css/owl.carousel.min.css')
+  link(rel='stylesheet' href='css/owl.theme.default.min.css')
+  link(rel='stylesheet' href='css/magnific-popup.css')
+  link(rel='stylesheet' href='https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css')
+  link(rel='stylesheet' href='css/aos.css')
+  link(rel='stylesheet' href='css/ionicons.min.css')
+  link(rel='stylesheet' href='css/flaticon.css')
+  link(rel='stylesheet' href='css/icomoon.css')
+  link(rel='stylesheet' href='css/style.css')
+.py-1.bg-danger.top
   .container
     .row.no-gutters.d-flex.align-items-start.align-items-center.px-md-0
       .col-lg-12.d-block
@@ -45,29 +48,30 @@ head
           .col-md.pr-4.d-flex.topper.align-items-center
             .icon.mr-2.d-flex.justify-content-center.align-items-center
               span.icon-phone2
-            span.text + 1235 2355 98
+            span.text +91 78888-88888
           .col-md.pr-4.d-flex.topper.align-items-center
             .icon.mr-2.d-flex.justify-content-center.align-items-center
               span.icon-paper-plane
-            span.text youremail@email.com
+            span.text pamsservices@gmail.com
           .col-md-5.pr-4.d-flex.topper.align-items-center.text-lg-right.justify-content-end
             p.mb-0.register-link
-              a.mr-3(href='#') Sign Up
-              a(href='#') Sign In
+              a.mr-3(href='index2.html') Sign Up
+              a(href='login.html') login In
 nav#ftco-navbar.navbar.navbar-expand-lg.navbar-dark.ftco_navbar.bg-dark.ftco-navbar-light.site-navbar-target
   .container
+    .logo
+      img(src='logo 90.png')
     a.navbar-brand(href='index.html')
-    | &gt;
     h1
-      b PAMS
-    | Patient Advisory Medical Services
+      b
+        span PAMS
     button.navbar-toggler.js-fh5co-nav-toggle.fh5co-nav-toggle(type='button' data-toggle='collapse' data-target='#ftco-nav' aria-controls='ftco-nav' aria-expanded='false' aria-label='Toggle navigation')
       span.oi.oi-menu
       |  Menu
     #ftco-nav.collapse.navbar-collapse
       ul.navbar-nav.nav.ml-auto
         li.nav-item
-          a.nav-link(href='#home-section')
+          a#h33.nav-link(href='#home-section')
             span Home
         li.nav-item
           a.nav-link(href='#about-section')
@@ -85,7 +89,7 @@ nav#ftco-navbar.navbar.navbar-expand-lg.navbar-dark.ftco_navbar.bg-dark.ftco-nav
           a.nav-link(href='#details')
             span Details
         // <li class="nav-item cta mr-md-2"><a href="appointment.html" class="nav-link">Appointment</a></li>
-section.hero-wrap.js-fullheight(style="background-image: url('images/bg_3.jpg');" data-section='home' data-stellar-background-ratio='0.5')
+section.hero-wrap.js-fullheight(style="background-image: url('images/bg_2.jpg');" data-section='home' data-stellar-background-ratio='0.5')
   .overlay
   .container
     .row.no-gutters.slider-text.js-fullheight.align-items-center.justify-content-start(data-scrollax-parent='true')
@@ -95,14 +99,14 @@ section.hero-wrap.js-fullheight(style="background-image: url('images/bg_3.jpg');
             | THE HOSPITAL THAT
             br
             |  YOU CAN TRUST
-          h2.mb-4
+          h2.mb-4 WISE TO RESOLVE AND PATIENT TO PERFORM
           p.mb-4
-          // <p><a href="#" class="btn btn-primary py-3 px-4">Make an appointment</a></p>
+          // <p><a href="#" class="btn btn-secondary py-3 px-4 py-3 px-4">Make an appointment</a></p>
 section#about-section.ftco-counter.img.ftco-section.ftco-no-pt.ftco-no-pb
   .container
     .row.d-flex
       .col-md-6.col-lg-5.d-flex
-        .img.d-flex.align-self-stretch.align-items-center(style='background-image:url(images/about.jpg);')
+        .img.align-content-lg-center(style='background-image:url(images/bg.png);')
       .col-md-6.col-lg-7.pl-lg-5.py-md-5
         .py-md-5
           .row.justify-content-start.pb-3
@@ -113,8 +117,8 @@ section#about-section.ftco-counter.img.ftco-section.ftco-no-pt.ftco-no-pb
                 |  A Medical Clinic
               p
                 | A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.
-              // <p><a href="#" class="btn btn-primary py-3 px-4">Make an appointment</a>
-              a.btn.btn-secondary.py-3.px-4(href='#') Contact us
+              // <p><a href="#" class="btn btn-secondary py-3 px-4 py-3 px-4">Make an appointment</a>
+              a.btn.btn-secondary.py-3.px-4(href='#contact-section') Contact us
               p
 section.ftco-section.ftco-no-pt.ftco-no-pb.ftco-services-2.bg-light
   .container
@@ -132,76 +136,84 @@ section.ftco-section.ftco-no-pt.ftco-no-pb.ftco-services-2.bg-light
                 .media-body.pl-md-4
                   h3.heading.mb-3 Emergency Services
                   p
-                    | A small river named Duden flows by their place and supplies it with the necessary regelialia.
+                    | A group respond to emergencies and provide safety-related services like ambulance and other services
             .col-md-6.d-flex.align-self-stretch.ftco-animate
               .media.block-6.services.d-flex
                 .icon.justify-content-center.align-items-center.d-flex
                   span.flaticon-doctor
                 .media-body.pl-md-4
                   h3.heading.mb-3 Qualified Doctors
-                  p
-                    | A small river named Duden flows by their place and supplies it with the necessary regelialia.
+                  p A big team of well qualified,experienced and skilled doctors of every department
             .col-md-6.d-flex.align-self-stretch.ftco-animate
               .media.block-6.services.d-flex
                 .icon.justify-content-center.align-items-center.d-flex
-                  span.flaticon-stethoscope
-                .media-body.pl-md-4
-                  h3.heading.mb-3 Outdoors Checkup
+                  span.icon-phone2
+                .media-body.pl-md-6
+                  h3.heading.mb-3 Helpline Number
                   p
-                    | A small river named Duden flows by their place and supplies it with the necessary regelialia.
+                    | This helpline number provides immediate services to the patient.
+                    br
+                    | Call:+9179999-99999
+                    br
+                    | 89999-99999.
             .col-md-6.d-flex.align-self-stretch.ftco-animate
               .media.block-6.services.d-flex
                 .icon.justify-content-center.align-items-center.d-flex
                   span.flaticon-24-hours
-                .media-body.pl-md-4
+                .media-body.pl-md-3
                   h3.heading.mb-3 24 Hours Service
                   p
-                    | A small river named Duden flows by their place and supplies it with the necessary regelialia.
+                    | the service line is staffed by experienced doctors and nurses for 24hrs service and also provides expert health advice.
       .col-md-5.d-flex
-        .appointment-wrap.bg-white.p-4.p-md-5.d-flex.align-items-center
-          form.appointment-form.ftco-animate(action='#')
-            h3 Free Consultation
+        a#appointment
+          .appointment-wrap.bg-white.p-4.p-md-5.d-flex.align-items-center
+        form.appointment-form.ftco-animate(action='#')
+          h3 Consultation
+          div
+            .form-group
+              //
+                <input type="text" class="form-control" placeholder="First Name">
+                </div>
+              .form-group
+                input#uname.form-control(type='text' placeholder='Username')
+            div
+
+              .form-group
+                .form-field
+                  .select-wrap
+                    .icon
+                      span.ion-ios-arrow-down
+                    select.form-control(name='' id='depta')
+                      option(value='Select Deparment') Select Deparment
+                      option(value='Neurology') Neurology
+                      option(value='Cardiology') Cardiology
+                      option(value='Dental') Dental
+                      option(value='Ophthalmology') Ophthalmology
+                      option(value='Other Services') Other Services
+              .form-group
+                input.form-control(type='text' placeholder='Phone')
             div
               .form-group
-                //
-                  <input type="text" class="form-control" placeholder="First Name">
-                  </div>
-                  <div class="form-group">
-                  <input type="text" class="form-control" placeholder="Last Name">
-                  </div>
-                  </div>
-                div
-                  .form-group
-                    .form-field
-                      .select-wrap
-                        .icon
-                          span.ion-ios-arrow-down
-                        select.form-control(name='' id='')
-                          option(value='') Select Your Services
-                          option(value='') Neurology
-                          option(value='') Cardiology
-                          option(value='') Dental
-                          option(value='') Ophthalmology
-                          option(value='') Other Services
-                  .form-group
-                    input.form-control(type='text' placeholder='Phone')
-                div
-                  .form-group
-                    .input-wrap
-                      .icon
-                        span.ion-md-calendar
-                      input.form-control.appointment_date(type='text' placeholder='Date')
-                  .form-group
-                    .input-wrap
-                      .icon
-                        span.ion-ios-clock
-                      input.form-control.appointment_time(type='text' placeholder='Time')
-                div
-                  .form-group
-                    textarea.form-control(name='' id='' cols='30' rows='2' placeholder='Message')
-                  .form-group
-                    input.btn.btn-secondary.py-3.px-4(type='submit' value='Appointment')
-section.ftco-intro.img(style='background-image: url(images/bg_2.jpg);')
+                .input-wrap
+                  .icon
+                    span.ion-md-calendar
+                  input.form-control.appointment_date(type='text' placeholder='Date')
+              .form-group
+                .input-wrap
+                  .icon
+                    span.ion-ios-clock
+                  // <input type="text" class="form-control appointment_time" placeholder="Time">
+            div
+              .form-group
+                textarea.form-control(name='' id='' cols='30' rows='2' placeholder='Message')
+              .form-group
+                input#app.btn.btn-secondary.py-3.px-4(type='submit' value='Appointment')
+
+            div
+              span#docid Doc_id : _
+
+
+section.ftco-intro.img(style='background-image: url(images/image_1.jpg')
   .overlay
   .container
     .row.justify-content-center
@@ -222,8 +234,7 @@ section#department-section.ftco-section.ftco-no-pt.ftco-no-pb
               .text.p-2.text-center
                 .icon
                   span.flaticon-stethoscope
-                h3
-                  a(href='#') Neurology
+                h3 Neurology
                 p Deals with disoders of the nervous system
             .department-wrap.p-4.ftco-animate
               .text.p-2.text-center
@@ -236,52 +247,45 @@ section#department-section.ftco-section.ftco-no-pt.ftco-no-pb
               .text.p-2.text-center
                 .icon
                   span.flaticon-stethoscope
-                h3
-                  a(href='#') Dental
+                h3 Dental
                 p Deals with the disoders of oral cavity
           .col-md-4
             .department-wrap.p-4.ftco-animate
               .text.p-2.text-center
                 .icon
                   span.flaticon-stethoscope
-                h3
-                  a(href='#') Opthalmology
+                h3 Opthalmology
                 p Deals with the treatment of eye disoders
             .department-wrap.p-4.ftco-animate
               .text.p-2.text-center
                 .icon
                   span.flaticon-stethoscope
-                h3
-                  a(href='#') Cardiology
+                h3 Cardiology
                 p Deals with the disoders of the heart and circulating system
             .department-wrap.p-4.ftco-animate
               .text.p-2.text-center
                 .icon
                   span.flaticon-stethoscope
-                h3
-                  a(href='#') Traumatology
+                h3 Traumatology
                 p Deals with wounds and injuries caused by accident
           .col-md-4
             .department-wrap.p-4.ftco-animate
               .text.p-2.text-center
                 .icon
                   span.flaticon-stethoscope
-                h3
-                  a(href='#') Gynacology
+                h3 Gynacology
                 p Deals with healths of female reproductive system
             .department-wrap.p-4.ftco-animate
               .text.p-2.text-center
                 .icon
                   span.flaticon-stethoscope
-                h3
-                  a(href='#') Radiology
+                h3 Radiology
                 p For the x-ray of various parts of persons
             .department-wrap.p-4.ftco-animate
               .text.p-2.text-center
                 .icon
                   span.flaticon-stethoscope
-                h3
-                  a(href='#') Oncology
+                h3 Oncology
                 p Treatment of Tumours and cancers
 section#doctor-section.ftco-section
   .container-fluid.px-5
@@ -296,7 +300,7 @@ section#doctor-section.ftco-section
           .img-wrap.d-flex.align-items-stretch
             .img.align-self-stretch(style='background-image: url(images/doc-1.jpg);')
           .text.pt-3.text-center
-            h3.mb-2 Dr. Lloyd Wilson
+            h3.mb-2 Dr.Pranav Vohra
             span.position.mb-2 Neurologist
             .faded
               p I am an ambitious workaholic, but apart from that, pretty simple person.
@@ -313,14 +317,13 @@ section#doctor-section.ftco-section
                 li.ftco-animate
                   a(href='#')
                     span.icon-instagram
-              p
-                a#fgh.btn.btn-default(href='#') Book now
+              // <p><a href="#"  class="btn btn-secondary py-3 px-4">Book now</a></p>
       .col-md-6.col-lg-3.ftco-animate
         .staff
           .img-wrap.d-flex.align-items-stretch
-            .img.align-self-stretch(style='background-image: url(images/doc-2.jpg);')
+            .img.align-self-stretch(style='background-image: url(images/image2.jfif);')
           .text.pt-3.text-center
-            h3.mb-2 Dr. Rachel Parker
+            h3.mb-2 Dr. Avneet kaur
             span.position.mb-2 Ophthalmologist
             .faded
               p I am an ambitious workaholic, but apart from that, pretty simple person.
@@ -337,14 +340,13 @@ section#doctor-section.ftco-section
                 li.ftco-animate
                   a(href='#')
                     span.icon-instagram
-              p
-                a.btn.btn-primary(href='#') Book now
+              // <p><a href="#"id="fgh" class="btn btn-secondary py-3 px-4">Book now</a></p>
       .col-md-6.col-lg-3.ftco-animate
         .staff
           .img-wrap.d-flex.align-items-stretch
             .img.align-self-stretch(style='background-image: url(images/doc-3.jpg);')
           .text.pt-3.text-center
-            h3.mb-2 Dr. Ian Smith
+            h3.mb-2 Dr. S.S Bhatia
             span.position.mb-2 Dentist
             .faded
               p I am an ambitious workaholic, but apart from that, pretty simple person.
@@ -361,14 +363,13 @@ section#doctor-section.ftco-section
                 li.ftco-animate
                   a(href='#')
                     span.icon-instagram
-              p
-                a.btn.btn-primary(href='#') Book now
+              // <p><a href="#"id="fgh"	 class="btn btn-secondary py-3 px-4">Book now</a></p>
       .col-md-6.col-lg-3.ftco-animate
         .staff
           .img-wrap.d-flex.align-items-stretch
-            .img.align-self-stretch(style='background-image: url(images/doc-4.jpg);')
+            .img.align-self-stretch(style='background-image: url(images/image1.jpg);')
           .text.pt-3.text-center
-            h3.mb-2 Dr. Alicia Henderson
+            h3.mb-2 Dr. Ishita Sharma
             span.position.mb-2 Pediatrician
             .faded
               p I am an ambitious workaholic, but apart from that, pretty simple person.
@@ -385,8 +386,7 @@ section#doctor-section.ftco-section
                 li.ftco-animate
                   a(href='#')
                     span.icon-instagram
-              p
-                a.btn.btn-primary(href='#') Book now
+              // <p><a href="#" class="btn btn-secondary py-3 px-4">Book now</a></p>
 section.ftco-facts.img.ftco-counter(style='background-image: url(images/bg_3.jpg);')
   .overlay
   .container
@@ -395,7 +395,7 @@ section.ftco-facts.img.ftco-counter(style='background-image: url(images/bg_3.jpg
         span.subheading Fun facts
         h2.mb-4 Over 5,100 patients trust us
         p.mb-0
-          a.btn.btn-secondary.px-4.py-3(href='#') Make an appointment
+          a.btn.btn-secondary.px-4.py-3(href='#appointment') Make an appointment
       .col-md-7
         .row.pt-4
           .col-md-6.d-flex.justify-content-center.counter-wrap.ftco-animate
@@ -418,128 +418,115 @@ section.ftco-facts.img.ftco-counter(style='background-image: url(images/bg_3.jpg
               .text
                 strong.number(data-number='300') 0
                 span Number of Staffs
-section#blog-section.ftco-section.bg-light
-  .container
-    .row.justify-content-center.mb-5.pb-5
-      .col-md-10.heading-section.text-center.ftco-animate
-        h2.mb-4 Gets Every Single Updates Here
-        p
-          | Far far away, behind the word mountains, far from the countries Vokalia and Consonantia
-    .row.d-flex
-      .col-md-4.ftco-animate
-        .blog-entry
-          a.block-20(href='blog-single.html' style="background-image: url('images/image_1.jpg');")
-          .text.d-block
-            .meta.mb-3
-              div
-                a(href='#') June 9, 2019
-              div
-                a(href='#') Admin
-              div
-                a.meta-chat(href='#')
-                  span.icon-chat
-                  |  3
-            h3.heading
-              a(href='#') Scary Thing That You Don&rsquo;t Get Enough Sleep
-            p
-              | Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.
-            p
-              a.btn.btn-primary.py-2.px-3(href='blog-single.html') Read more
-      .col-md-4.ftco-animate
-        .blog-entry
-          a.block-20(href='blog-single.html' style="background-image: url('images/image_2.jpg');")
-          .text.d-block
-            .meta.mb-3
-              div
-                a(href='#') June 9, 2019
-              div
-                a(href='#') Admin
-              div
-                a.meta-chat(href='#')
-                  span.icon-chat
-                  |  3
-            h3.heading
-              a(href='#') Scary Thing That You Don&rsquo;t Get Enough Sleep
-            p
-              | Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.
-            p
-              a.btn.btn-primary.py-2.px-3(href='blog-single.html') Read more
-      .col-md-4.ftco-animate
-        .blog-entry
-          a.block-20(href='blog-single.html' style="background-image: url('images/image_3.jpg');")
-          .text.d-block
-            .meta.mb-3
-              div
-                a(href='#') June 9, 2019
-              div
-                a(href='#') Admin
-              div
-                a.meta-chat(href='#')
-                  span.icon-chat
-                  |  3
-            h3.heading
-              a(href='#') Scary Thing That You Don&rsquo;t Get Enough Sleep
-            p
-              | Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.
-            p
-              a.btn.btn-primary.py-2.px-3(href='blog-single.html') Read more
-      .col-md-4.ftco-animate
-        .blog-entry
-          a.block-20(href='blog-single.html' style="background-image: url('images/image_4.jpg');")
-          .text.d-block
-            .meta.mb-3
-              div
-                a(href='#') June 9, 2019
-              div
-                a(href='#') Admin
-              div
-                a.meta-chat(href='#')
-                  span.icon-chat
-                  |  3
-            h3.heading
-              a(href='#') Scary Thing That You Don&rsquo;t Get Enough Sleep
-            p
-              | Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.
-            p
-              a.btn.btn-primary.py-2.px-3(href='blog-single.html') Read more
-      .col-md-4.ftco-animate
-        .blog-entry
-          a.block-20(href='blog-single.html' style="background-image: url('images/image_5.jpg');")
-          .text.d-block
-            .meta.mb-3
-              div
-                a(href='#') June 9, 2019
-              div
-                a(href='#') Admin
-              div
-                a.meta-chat(href='#')
-                  span.icon-chat
-                  |  3
-            h3.heading
-              a(href='#') Scary Thing That You Don&rsquo;t Get Enough Sleep
-            p
-              | Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.
-            p
-              a.btn.btn-primary.py-2.px-3(href='blog-single.html') Read more
-      .col-md-4.ftco-animate
-        .blog-entry
-          a.block-20(href='blog-single.html' style="background-image: url('images/image_6.jpg');")
-          .text.d-block
-            .meta.mb-3
-              div
-                a(href='#') June 9, 2019
-              div
-                a(href='#') Admin
-              div
-                a.meta-chat(href='#')
-                  span.icon-chat
-                  |  3
-            h3.heading
-              a(href='#') Scary Thing That You Don&rsquo;t Get Enough Sleep
-            p
-              | Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.
-            p
-              a.btn.btn-primary.py-2.px-3(href='blog-single.html') Read more
+//
+  <section class="ftco-section bg-light" id="blog-section">
+  <div class="container">
+  <div class="row justify-content-center mb-5 pb-5">
+  <div class="col-md-10 heading-section text-center ftco-animate">
+  <h2 class="mb-4">Gets Every Single Updates Here</h2>
+  <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia</p>
+  </div>
+  </div>
+  <div class="row d-flex">
+  <div class="col-md-4 ftco-animate">
+  <div class="blog-entry">
+  <a href="blog-single.html" class="block-20" style="background-image: url('images/image_1.jpg');">
+  </a>
+  <div class="text d-block">
+  <div class="meta mb-3">
+  <div><a href="#">June 9, 2019</a></div>
+  <div><a href="#">Admin</a></div>
+  <div><a href="#" class="meta-chat"><span class="icon-chat"></span> 3</a></div>
+  </div>
+  <h3 class="heading"><a href="#">Scary Thing That You Don’t Get Enough Sleep</a></h3>
+  <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+  <p><a href="blog-single.html" class="btn btn-secondary py-3 px-4 py-2 px-3">Read more</a></p>
+  </div>
+  </div>
+  </div>
+  <div class="col-md-4 ftco-animate">
+  <div class="blog-entry">
+  <a href="blog-single.html" class="block-20" style="background-image: url('images/image_2.jpg');">
+  </a>
+  <div class="text d-block">
+  <div class="meta mb-3">
+  <div><a href="#">June 9, 2019</a></div>
+  <div><a href="#">Admin</a></div>
+  <div><a href="#" class="meta-chat"><span class="icon-chat"></span> 3</a></div>
+  </div>
+  <h3 class="heading"><a href="#">Scary Thing That You Don’t Get Enough Sleep</a></h3>
+  <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+  <p><a href="blog-single.html" class="btn btn-secondary py-3 px-4 py-2 px-3">Read more</a></p>
+  </div>
+  </div>
+  </div>
+  <div class="col-md-4 ftco-animate">
+  <div class="blog-entry">
+  <a href="blog-single.html" class="block-20" style="background-image: url('images/image_3.jpg');">
+  </a>
+  <div class="text d-block">
+  <div class="meta mb-3">
+  <div><a href="#">June 9, 2019</a></div>
+  <div><a href="#">Admin</a></div>
+  <div><a href="#" class="meta-chat"><span class="icon-chat"></span> 3</a></div>
+  </div>
+  <h3 class="heading"><a href="#">Scary Thing That You Don’t Get Enough Sleep</a></h3>
+  <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+  <p><a href="blog-single.html" class="btn btn-secondary py-3 px-4 py-2 px-3">Read more</a></p>
+  </div>
+  </div>
+  </div>
+  <div class="col-md-4 ftco-animate">
+  <div class="blog-entry">
+  <a href="blog-single.html" class="block-20" style="background-image: url('images/image_4.jpg');">
+  </a>
+  <div class="text d-block">
+  <div class="meta mb-3">
+  <div><a href="#">June 9, 2019</a></div>
+  <div><a href="#">Admin</a></div>
+  <div><a href="#" class="meta-chat"><span class="icon-chat"></span> 3</a></div>
+  </div>
+  <h3 class="heading"><a href="#">Scary Thing That You Don’t Get Enough Sleep</a></h3>
+  <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+  <p><a href="blog-single.html" class="btn btn-secondary py-3 px-4 py-2 px-3">Read more</a></p>
+  </div>
+  </div>
+  </div>
+  <div class="col-md-4 ftco-animate">
+  <div class="blog-entry">
+  <a href="blog-single.html" class="block-20" style="background-image: url('images/image_5.jpg');">
+  </a>
+  <div class="text d-block">
+  <div class="meta mb-3">
+  <div><a href="#">June 9, 2019</a></div>
+  <div><a href="#">Admin</a></div>
+  <div><a href="#" class="meta-chat"><span class="icon-chat"></span> 3</a></div>
+  </div>
+  <h3 class="heading"><a href="#">Scary Thing That You Don’t Get Enough Sleep</a></h3>
+  <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+  <p><a href="blog-single.html" class="btn btn-secondary py-3 px-4 py-2 px-3">Read more</a></p>
+  </div>
+  </div>
+  </div>
+  <div class="col-md-4 ftco-animate">
+  <div class="blog-entry">
+  <a href="blog-single.html" class="block-20" style="background-image: url('images/image_6.jpg');">
+  </a>
+  <div class="text d-block">
+  <div class="meta mb-3">
+  <div><a href="#">June 9, 2019</a></div>
+  <div><a href="#">Admin</a></div>
+  <div><a href="#" class="meta-chat"><span class="icon-chat"></span> 3</a></div>
+  </div>
+  <h3 class="heading"><a href="#">Scary Thing That You Don’t Get Enough Sleep</a></h3>
+  <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+  <p><a href="blog-single.html" class="btn btn-secondary py-3 px-4 py-2 px-3">Read more</a></p>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </section>
 section.ftco-section.testimony-section.img(style='background-image: url(images/bg_3.jpg);')
   .overlay
   .container
@@ -605,15 +592,14 @@ section#contact-section.ftco-section.contact-section
     .row.justify-content-center.mb-5.pb-3
       .col-md-7.heading-section.text-center.ftco-animate
         h2.mb-4 Contact Us
-        p
-          | Far far away, behind the word mountains, far from the countries Vokalia and Consonantia
+        p PLEASE CONTACT US
     .row.d-flex.contact-info.mb-5
       .col-md-6.col-lg-3.d-flex.ftco-animate
         .align-self-stretch.box.p-4.text-center.bg-light
           .icon.d-flex.align-items-center.justify-content-center
             span.icon-map-signs
           h3.mb-4 Address
-          p 198 West 21th Street, Suite 721 New York NY 10016
+          p 198 STREET COLONY MODEL TOWN,PATIALA
       .col-md-6.col-lg-3.d-flex.ftco-animate
         .align-self-stretch.box.p-4.text-center.bg-light
           .icon.d-flex.align-items-center.justify-content-center
@@ -642,18 +628,14 @@ footer.ftco-footer.ftco-section.img(style='background-image: url(images/footer-b
       .row.mb-5
         .col-md
           .ftco-footer-widget.mb-4
-            h2.ftco-heading-2 Mediplus
-            p Far far away, behind the word mountains, far from the countries.
-            ul.ftco-footer-social.list-unstyled.mt-5
-              li.ftco-animate
-                a(href='#')
-                  span.icon-twitter
-              li.ftco-animate
-                a(href='#')
-                  span.icon-facebook
-              li.ftco-animate
-                a(href='#')
-                  span.icon-instagram
+            h2.ftco-heading-2 PAMS
+            p WISE TO RESOLVE AND PATIENT TO PERFORM
+            //
+              <ul class="ftco-footer-social list-unstyled mt-5">
+              <li class="ftco-animate"><a href="#"><span class="icon-twitter"></span></a></li>
+              <li class="ftco-animate"><a href="#"><span class="icon-facebook"></span></a></li>
+              <li class="ftco-animate"><a href="#"><span class="icon-instagram"></span></a></li>
+              </ul>
         .col-md
           .ftco-footer-widget.mb-4.ml-md-4
             h2.ftco-heading-2 Departments
@@ -705,35 +687,19 @@ footer.ftco-footer.ftco-section.img(style='background-image: url(images/footer-b
               li
                 a(href='#')
                   span.icon-long-arrow-right.mr-2
-                  | Blog
-              li
-                a(href='#')
-                  span.icon-long-arrow-right.mr-2
-                  | Pricing
-              li
-                a(href='#')
-                  span.icon-long-arrow-right.mr-2
                   | Contact
-        .col-md
-          .ftco-footer-widget.mb-4
-            h2.ftco-heading-2 Services
-            ul.list-unstyled
-              li
-                a(href='#')
-                  span.icon-long-arrow-right.mr-2
-                  | Emergency Services
-              li
-                a(href='#')
-                  span.icon-long-arrow-right.mr-2
-                  | Qualified Doctors
-              li
-                a(href='#')
-                  span.icon-long-arrow-right.mr-2
-                  | Outdoors Checkup
-              li
-                a(href='#')
-                  span.icon-long-arrow-right.mr-2
-                  | 24 Hours Services
+        //
+          <div class="col-md">
+          <div class="ftco-footer-widget mb-4">
+          <h2 class="ftco-heading-2">Services</h2>
+          <ul class="list-unstyled">
+          <li><a href="#"><span class="icon-long-arrow-right mr-2"></span>Emergency Services</a></li>
+          <li><a href="#"><span class="icon-long-arrow-right mr-2"></span>Qualified Doctors</a></li>
+          <li><a href="#"><span class="icon-long-arrow-right mr-2"></span>Outdoors Checkup</a></li>
+          <li><a href="#"><span class="icon-long-arrow-right mr-2"></span>24 Hours Services</a></li>
+          </ul>
+          </div>
+          </div>
         .col-md
           .ftco-footer-widget.mb-4
             h2.ftco-heading-2 Have a Questions?
@@ -743,11 +709,11 @@ footer.ftco-footer.ftco-section.img(style='background-image: url(images/footer-b
                 li
                   a(href='#')
                     span.icon.icon-phone
-                    span.text +2 392 3929 210
+                    span.text +91 78888-88888
                 li
                   a(href='#')
                     span.icon.icon-envelope.pr-4
-                    span.text info@yourdomain.com
+                    span.text pamsservices@gmail.com
       .row
         .col-md-12.text-center
 // loader
@@ -770,3 +736,5 @@ script(src='js/scrollax.min.js')
 script(src='https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false')
 script(src='js/google-map.js')
 script(src='js/main.js')
+
+script(src='js/appoint.js')

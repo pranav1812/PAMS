@@ -16,7 +16,7 @@ app.use(bodyParser.json());
 // Set static folder
 app.use(express.static(path.join(__dirname, 'public')));
 
-var PORT=3000;
+var PORT=3001;
 
 app.get('/',(req,res)=>{
     res.render('layout',{
@@ -24,5 +24,5 @@ app.get('/',(req,res)=>{
     });
 });
 
-app.listen(3000);
+app.listen(PORT);
 
