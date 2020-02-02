@@ -1,0 +1,47 @@
+<html>
+    <head>
+        <script src="https://www.gstatic.com/firebasejs/7.7.0/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.7.0/firebase-firestore.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.7.0/firebase-analytics.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.7.0/firebase-storage.js"></script>
+        <script src="/__/firebase/init.js"></script>
+        <link rel="stylesheet" href="stl.css">
+    </head>
+    <body>
+
+        <h1>Doctor Side</h1>
+
+        <div class="content">
+
+            <form id="add-cafe-form"></form>
+
+            <ul id="cafe-list"></ul>
+
+        </div>
+
+
+    </body>
+</html>
+
+
+<script>
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyDo8QSAjRGAaW1ikxuY4umH6U776U8dk3g",
+    authDomain: "pams-7b05e.firebaseapp.com",
+    databaseURL: "https://pams-7b05e.firebaseio.com",
+    projectId: "pams-7b05e",
+    storageBucket: "pams-7b05e.appspot.com",
+    messagingSenderId: "370421823792",
+    appId: "1:370421823792:web:49bfb98edfcfffc1b270f5",
+    measurementId: "G-S6BYXZEL55"
+
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  firebase.analytics();
+  const db = firebase.firestore();
+  db.settings({ timestampsInSnapshots: true });
+
+</script>
+<script src="doctor.js"></script>
