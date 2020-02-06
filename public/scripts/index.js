@@ -7,6 +7,7 @@ const latpres = document.querySelector('.account-latpres');
 const medhis = document.querySelector('.account-medhis');
 const city = document.querySelector('.container1');
 const trial=document.querySelector('.trial');
+const selct=document.getElementById('selct');
 
 
 
@@ -35,11 +36,29 @@ const setupUI = (user) => {
       <div>${doc.data().bio}</div>
 
       `;
-            
+
       accountDetails.innerHTML = html;
       medhis.innerHTML=med;
       latpres.innerHTML=pres;
     });
+    selct.addEventListener('change',showlist);
+    function showlist(){
+      var selectedCity=selct.value;
+      db.collection(selectedCity).get().then(snap=>{
+
+        snap.docs.forEach(hos=>{
+          var li=document.createElement('li');
+          var link=document.createElement('a');
+          link.href=hos.data().name;
+          link.innerHTML=hos.data().name;
+          li.appendChild(link);
+          trial.appendChild(li);
+        })
+      })
+
+
+
+    }
 
 
 
@@ -67,7 +86,7 @@ const setupGuides = (data) => {
     });
     guideList.innerHTML = html
   } else {
-    guideList.innerHTML = '<h5 class="center-align">Login to view guides</h5>';
+    guideList.innerHTML = '<h5 class="center-align">Login to check Profile</h5>';
   }
 
 
