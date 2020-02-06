@@ -1,6 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <script src="https://www.gstatic.com/firebasejs/7.7.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.7.0/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.7.0/firebase-analytics.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.7.0/firebase-storage.js"></script>
+    <script src="/__/firebase/init.js"></script>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -18,7 +24,7 @@
 
         <section class="signup">
              
-            <div class="container">
+            <div class="container" id="contain">
                 <div class="signup-content">
                     <form method="POST" id="signup-form" class="signup-form">
                         <h2 class="form-title">Login account</h2>
@@ -33,12 +39,12 @@
                         <!--<div class="form-group">
                             <input type="password" class="form-input" name="re_password" id="re_password" placeholder="Repeat your password"/>
                         </div>-->
-                        <div class="form-group">
+                        <div class="form-group" id="city">
                             <input type="text" class="form-input" name="name" id="City" placeholder="Current City"/>
                         </div>
                        
                         <div class="form-group">
-                           <button type="submit" name="submit" id="submit" class="form-submit" value="Login"><a href="index.html">Login</a></button> 
+                           <button id="btn" type="submit" name="submit" id="submit" class="form-submit" value="Login"><a href="index.html">Login</a></button> 
                         </div>
                         
                     </form>
@@ -54,3 +60,27 @@
     <script src="js/main.js"></script>
 </body><!-- This templates was made by Colorlib (https://colorlib.com) -->
 </html>
+
+<script>
+        // Your web app's Firebase configuration
+        var firebaseConfig = {
+          apiKey: "AIzaSyDo8QSAjRGAaW1ikxuY4umH6U776U8dk3g",
+          authDomain: "pams-7b05e.firebaseapp.com",
+          databaseURL: "https://pams-7b05e.firebaseio.com",
+          projectId: "pams-7b05e",
+          storageBucket: "pams-7b05e.appspot.com",
+          messagingSenderId: "370421823792",
+          appId: "1:370421823792:web:49bfb98edfcfffc1b270f5",
+          measurementId: "G-S6BYXZEL55"
+      
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        firebase.analytics();
+        const db = firebase.firestore();
+        db.settings({ timestampsInSnapshots: true });
+      
+</script>
+
+
+<script src="hospitallist.js"></script>

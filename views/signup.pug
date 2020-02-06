@@ -1,0 +1,88 @@
+doctype html
+// The core Firebase JS SDK is always required and must be listed first
+script(src='https://www.gstatic.com/firebasejs/7.8.0/firebase-app.js')
+script(src='https://www.gstatic.com/firebasejs/7.8.0/firebase-firestore.js')
+
+script(src='https://www.gstatic.com/firebasejs/7.8.0/firebase-analytics.js')
+script.
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+  apiKey: "AIzaSyDo8QSAjRGAaW1ikxuY4umH6U776U8dk3g",
+  authDomain: "pams-7b05e.firebaseapp.com",
+  databaseURL: "https://pams-7b05e.firebaseio.com",
+  projectId: "pams-7b05e",
+  storageBucket: "pams-7b05e.appspot.com",
+  messagingSenderId: "370421823792",
+  appId: "1:370421823792:web:49bfb98edfcfffc1b270f5",
+  measurementId: "G-S6BYXZEL55"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  firebase.analytics();
+  const db = firebase.firestore();
+  db.settings({ timestampsInSnapshots: true });
+
+
+head
+  meta(charset='UTF-8')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  meta(http-equiv='X-UA-Compatible' content='ie=edge')
+  title Sign Up Form by Colorlib
+  // Font Icon
+  link(rel='stylesheet' href='fonts/material-icon/css/material-design-iconic-font.min.css')
+  // Main css
+  link(rel='stylesheet' href='css/style2.css')
+.main
+  section.signup
+    .container
+      .signup-content
+        form#signup-form.signup-form(method='POST')
+          h2.form-title Create account
+          .form-group
+            input#name.form-input(type='text' name='name' placeholder='User Name')
+          .form-group
+            input#age.form-input(type='number' name='age' placeholder='Your Age')
+          .form-group
+            // <label id="lol">Select Gender</label>
+            select#gen.form-input
+              option#h(value='Gender') Select Gender
+              option(value='Male') Male
+              option(value='Female') Female
+              option(value='Others') Others
+          .form-group
+            input#age.form-input(type='number' name='age' placeholder='Phone Number')
+          .form-group
+            input#email.form-input(type='email' name='email' placeholder='Your Email')
+          .form-group
+            input#password.form-input(type='text' name='password' placeholder='Password')
+            span.zmdi.zmdi-eye.field-icon.toggle-password(toggle='#password')
+          .form-group
+            input#City.form-input(type='text' name='name' placeholder='Current City')
+          //
+            <div class="form-group">
+            <input type="password" class="form-input" name="re_password" id="re_password" placeholder="Repeat your password"/>
+            </div>
+          .form-group
+            input#agree-term.agree-term(type='checkbox' name='agree-term')
+            label.label-agree-term(for='agree-term')
+              span
+                span
+              | I agree all statements in
+              a.term-service(href='#') Terms of service
+          .form-group
+            button#submit.form-submit(type='submit' name='submit' value='Sign up') Signup
+            button(onclick='signInWithGoogle()') Sign in with Google
+          script.
+            function signInWithGoogle(){
+            var gap=new firebase.auth.GoogleAuthProvider
+            firebase.auth().signInWithPopup(gap)
+            .then((data)=>console.log(data))
+            .catch((err)=>console.log(err))
+            }
+        p.loginhere
+          | Have already an account ?
+          a.loginhere-link(href='login.html') Login here
+// JS
+script(src='vendor/jquery/jquery.min.js')
+script(src='js/main.js')
+// This templates was made by Colorlib (https://colorlib.com)

@@ -168,7 +168,7 @@ section.ftco-section.ftco-no-pt.ftco-no-pb.ftco-services-2.bg-light
         a#appointment
           .appointment-wrap.bg-white.p-4.p-md-5.d-flex.align-items-center
         form.appointment-form.ftco-animate(action='#')
-          h3 Consultation
+          h3 #{hosname}
           div
             .form-group
               //
@@ -191,8 +191,10 @@ section.ftco-section.ftco-no-pt.ftco-no-pb.ftco-services-2.bg-light
                       option(value='Ophthalmology') Ophthalmology
                       option(value='Other Services') Other Services
               .form-group
+
                 input.form-control(type='text' placeholder='Phone')
-            div
+
+            //div
               .form-group
                 .input-wrap
                   .icon
@@ -202,7 +204,7 @@ section.ftco-section.ftco-no-pt.ftco-no-pb.ftco-services-2.bg-light
                 .input-wrap
                   .icon
                     span.ion-ios-clock
-                  // <input type="text" class="form-control appointment_time" placeholder="Time">
+                   <input type="text" class="form-control appointment_time" placeholder="Time">
             div
               .form-group
                 textarea.form-control(name='' id='' cols='30' rows='2' placeholder='Message')

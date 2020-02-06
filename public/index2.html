@@ -1,78 +1,100 @@
 <!DOCTYPE html>
-<html lang="en">
+<!-- The core Firebase JS SDK is always required and must be listed first-->
+<script src="https://www.gstatic.com/firebasejs/7.8.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.8.0/firebase-firestore.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.8.0/firebase-analytics.js"></script>
+<script>
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyDo8QSAjRGAaW1ikxuY4umH6U776U8dk3g",
+    authDomain: "pams-7b05e.firebaseapp.com",
+    databaseURL: "https://pams-7b05e.firebaseio.com",
+    projectId: "pams-7b05e",
+    storageBucket: "pams-7b05e.appspot.com",
+    messagingSenderId: "370421823792",
+    appId: "1:370421823792:web:49bfb98edfcfffc1b270f5",
+    measurementId: "G-S6BYXZEL55"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  firebase.analytics();
+  const db = firebase.firestore();
+  db.settings({
+    timestampsInSnapshots: true
+  });
+</script>
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Sign Up Form by Colorlib</title>
-
-    <!-- Font Icon -->
-    <link rel="stylesheet" href="fonts/material-icon/css/material-design-iconic-font.min.css">
-
-    <!-- Main css -->
-    <link rel="stylesheet" href="css/style2.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Sign Up Form by Colorlib</title>
+  <!-- Font Icon-->
+  <link rel="stylesheet" href="fonts/material-icon/css/material-design-iconic-font.min.css">
+  <!-- Main css-->
+  <link rel="stylesheet" href="css/style2.css">
 </head>
-<body>
-
-    <div class="main">
-
-        <section class="signup">
-             
-            <div class="container">
-                <div class="signup-content">
-                    <form method="POST" id="signup-form" class="signup-form">
-                        <h2 class="form-title">Create account</h2>
-                        <div class="form-group">
-                            <input type="text" class="form-input" name="name" id="name" placeholder="User Name"/>
-                        </div>
-                        <div class="form-group">
-                            <input type="number" class="form-input" name="age" id="age" placeholder="Your Age"/>
-                        </div>
-                        <div class="form-group">
-                           <!-- <label id="lol">Select Gender</label>-->
-                            <select class="form-input" id='gen' >
-                                <option  id="h"value="Gender">Select Gender</option>
-                                <option  value="Male">Male</option>
-                                <option  value="Female">Female</option>
-                                <option  value="Others">Others</option>                                
-                              </select>
-                        </div>
-                        <div class="form-group">
-                            <input type="number" class="form-input" name="age" id="age" placeholder="Phone Number"/>
-                        </div>
-                        <div class="form-group">
-                            <input type="email" class="form-input" name="email" id="email" placeholder="Your Email"/>
-                        </div>
-                        <div class="form-group">
-                            <input type="text" class="form-input" name="password" id="password" placeholder="Password"/>
-                            <span toggle="#password" class="zmdi zmdi-eye field-icon toggle-password"></span>
-                        </div>
-                        <div class="form-group">
-                            <input type="text" class="form-input" name="name" id="City" placeholder="Current City"/>
-                        </div>
-                        <!--<div class="form-group">
-                            <input type="password" class="form-input" name="re_password" id="re_password" placeholder="Repeat your password"/>
-                        </div>-->
-                        <div class="form-group">
-                            <input type="checkbox" name="agree-term" id="agree-term" class="agree-term" />
-                            <label for="agree-term" class="label-agree-term"><span><span></span></span>I agree all statements in  <a href="#" class="term-service">Terms of service</a></label>
-                        </div>
-                        <div class="form-group">
-                            <button type="submit" name="submit" id="submit" class="form-submit" value="Sign up">Signup</button>
-                        </div>
-                        
-                    </form>
-                    <p class="loginhere">
-                        Have already an account ? <a href="login.html" class="loginhere-link">Login here</a>
-                    </p>
-                </div>
-            </div>
-        </section>
-
+<div class="main">
+  <section class="signup">
+    <div class="container">
+      <div class="signup-content">
+        <form class="signup-form" id="signup-form" method="POST">
+          <h2 class="form-title">Create account</h2>
+          <div class="form-group">
+            <input class="form-input" id="name" type="text" name="name" placeholder="User Name">
+          </div>
+          <div class="form-group">
+            <input class="form-input" id="age" type="number" name="age" placeholder="Your Age">
+          </div>
+          <div class="form-group">
+            <!-- <label id="lol">Select Gender</label>-->
+            <select class="form-input" id="gen">
+              <option id="h" value="Gender">Select Gender</option>
+              <option value="Male">Male</option>
+              <option value="Female">Female</option>
+              <option value="Others">Others</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <input class="form-input" id="age" type="number" name="age" placeholder="Phone Number">
+          </div>
+          <div class="form-group">
+            <input class="form-input" id="email" type="email" name="email" placeholder="Your Email">
+          </div>
+          <div class="form-group">
+            <input class="form-input" id="password" type="text" name="password" placeholder="Password"><span class="zmdi zmdi-eye field-icon toggle-password" toggle="#password"></span>
+          </div>
+          <div class="form-group">
+            <input class="form-input" id="City" type="text" name="name" placeholder="Current City">
+          </div>
+          <!--
+          <div class="form-group">
+          <input type="password" class="form-input" name="re_password" id="re_password" placeholder="Repeat your password"/>
+          </div>
+          -->
+          <div class="form-group">
+            <input class="agree-term" id="agree-term" type="checkbox" name="agree-term">
+            <label class="label-agree-term" for="agree-term"><span><span></span></span>I agree all statements in<a class="term-service" href="#">Terms of service</a></label>
+          </div>
+          <div class="form-group">
+            <button class="form-submit" id="submit" type="submit" name="submit" value="Sign up">Signup</button>
+            <button onclick="signInWithGoogle()">Sign in with Google</button>
+          </div>
+          <script>
+            function signInWithGoogle() {
+              var gap = new firebase.auth.GoogleAuthProvider
+              firebase.auth().signInWithPopup(gap)
+                .then((data) => console.log(data))
+                .catch((err) => console.log(err))
+            }
+          </script>
+        </form>
+        <p class="loginhere">Have already an account ?<a class="loginhere-link" href="login.html">Login here</a></p>
+      </div>
     </div>
-
-    <!-- JS -->
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="js/main.js"></script>
-</body><!-- This templates was made by Colorlib (https://colorlib.com) -->
-</html>
+  </section>
+</div>
+<!-- JS-->
+<script src="vendor/jquery/jquery.min.js"></script>
+<script src="js/main.js"></script>
+<!-- This templates was made by Colorlib (https://colorlib.com)-->

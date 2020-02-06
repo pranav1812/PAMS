@@ -18,10 +18,21 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 var PORT=3001;
 
+
+
 app.get('/',(req,res)=>{
+    res.redirect('dashboard.html')
+});
+
+app.get('/:id',(req,res)=>{
+
+
+
     res.render('layout',{
-        title:'hello world'
+        hosname:req.params.id
     });
+
+
 });
 
 app.listen(PORT);
