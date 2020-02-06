@@ -6,9 +6,11 @@ const accountDetails = document.querySelector('.account-details');
 const latpres = document.querySelector('.account-latpres');
 const medhis = document.querySelector('.account-medhis');
 const city = document.querySelector('.container1');
+const trial=document.querySelector('.trial');
 
 
 
+M.AutoInit();
 const setupUI = (user) => {
   if (user) {
     // account info
@@ -33,16 +35,14 @@ const setupUI = (user) => {
       <div>${doc.data().bio}</div>
 
       `;
-      const citylist = `
-        <br>
-        option
-      `;
-
-      city.innerHTML+=citylist;
+            
       accountDetails.innerHTML = html;
       medhis.innerHTML=med;
       latpres.innerHTML=pres;
     });
+
+
+
     // toggle user UI elements
     loggedInLinks.forEach(item => item.style.display = 'block');
     loggedOutLinks.forEach(item => item.style.display = 'none');
