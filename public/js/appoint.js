@@ -20,5 +20,17 @@ app.addEventListener('click',()=>{
     //var docid=db.collection('patients').docs[0].id;
     document.getElementById('docid').textContent+='GrIDdpbg1ect1MFeAXbT';
 
+    var sampledata={
+        name:"himanshu from lehra gaga",
+        disease:"heart broken"
+    }
+
+    db.collection('Patiala').doc('MKH').collection('Neurology').doc('gaga').set(sampledata).then(
+        ()=>{console.log('document successfully written');}
+    )
+
+    //var docid=db.collection('patients').docs[0].id;
+
+
 });
 
